@@ -1,0 +1,86 @@
+{
+  "arithmetic": "exact integers and rational numbers",
+  "finite_identities": {
+    "tournament_orders": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "labelled_tournaments": 75,
+    "word_lengths": [
+      0,
+      6
+    ],
+    "cases": 9525,
+    "reflected_word_repetition_counts": [
+      1,
+      4
+    ],
+    "direct_map_comparison_orders": [
+      1,
+      2,
+      3
+    ],
+    "direct_map_word_lengths": [
+      0,
+      4
+    ],
+    "direct_map_cases": 341,
+    "identities": [
+      "reflection",
+      "reflected-pair transfer",
+      "Cauchy lower bound",
+      "one-edge extension sum",
+      "repeated reflected-word flip count"
+    ]
+  },
+  "non_TAS_witness": {
+    "host": "transitive tournament",
+    "vertices": 128,
+    "word": "++--++--++",
+    "flips": 4,
+    "homomorphisms": 158125066372222954176,
+    "prefix_homomorphism_totals": [
+      128,
+      8128,
+      341376,
+      32686752,
+      1651747776,
+      152329054752,
+      7505773493376,
+      696865204003152,
+      34479347604982976,
+      3197961245321077152,
+      158125066372222954176
+    ],
+    "scaled_density_numerator": 161920067965156305076224,
+    "scaled_density_denominator": 151115727451828646838272,
+    "positive_integer_gap": 10804340513327658237952,
+    "limit_upper_bound": "1/2"
+  },
+  "permutation_witness": {
+    "word": "++--++--++--++--+++",
+    "edges": 19,
+    "flips": 8,
+    "periodic_prefix_counts": {
+      "a(19)": 908138776681,
+      "a(20)": 13194844482843
+    },
+    "signature_permutations": 4967931050777,
+    "independent_methods": [
+      "last-rank recurrence",
+      "descent inclusion-exclusion"
+    ],
+    "continuous_scaled_numerator": 2604626634749771776,
+    "continuous_scaled_denominator": 2432902008176640000,
+    "host": "transitive tournament",
+    "vertices": 4096,
+    "injective_homomorphisms": 3444073100228708389800262264064740897632867178641478903582070664192,
+    "scaled_density_lower_bound_numerator": 1805686197572709064271599901901974875738140667355583691401236664387895296,
+    "scaled_density_lower_bound_denominator": 1766847064778384329583297500742918515827483896875618958121606201292619776,
+    "positive_integer_gap": 38839132794324734688302401159056359910656770479964733279630463095275520,
+    "limit_upper_bound": "9/19"
+  },
+  "coverage": "Finite transfer identities, permutation counts and explicit witnesses; the all-length limit has a written proof."
+}

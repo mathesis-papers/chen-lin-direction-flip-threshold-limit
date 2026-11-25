@@ -1,0 +1,66 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 79433,
+      "matches_public": true,
+      "path": "paper.pdf",
+      "public_sha256": "804fb1beed78d55698b5b1ce70d6038d22881b58c06922d896464cdaeac30ce0",
+      "sha256": "804fb1beed78d55698b5b1ce70d6038d22881b58c06922d896464cdaeac30ce0"
+    },
+    "source": {
+      "bytes": 12860,
+      "matches_public": true,
+      "path": "source.archive",
+      "public_sha256": "d7234d93cb08d361cb682cf21384abc7feb130ce9568e6fef2f29bf212e622d1",
+      "sha256": "d7234d93cb08d361cb682cf21384abc7feb130ce9568e6fef2f29bf212e622d1"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "We answer Chen and Lin's Question 6.1 in Section 6 of Oriented Paths with Few Direction Flips Are Tournament Anti-Sidorenko (arXiv:2609.14655v1) affirmatively: their strict flip threshold divided by path length converges, by reflection and amplification of any finite counterexample followed by bounded padding in the same tournament. The limit is the infimum of the normalized flip counts, with one extra flip, of all non-anti-Sidorenko paths. A finite witness gives an explicit eventual upper bound; combined with Chen and Lin's lower bound, this yields a limit between 1/1665 and 9/19. Its exact value remains undetermined.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": null,
+    "current_version": 2,
+    "doi": null,
+    "lean_source": {
+      "revision": "81968a52b83b3d79d4db8e60c34e05d953675dc0",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/81968a52b83b3d79d4db8e60c34e05d953675dc0/D5/S3/Combinatorics/ExtremalDensity/ChenLinFlipLimit.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "bytes": 79433,
+      "sha256": "804fb1beed78d55698b5b1ce70d6038d22881b58c06922d896464cdaeac30ce0",
+      "url": "/api/v1/collected-papers/chen-lin-direction-flip-threshold-limit/files/pdf?version=2"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-25T15:18:37.733227726Z",
+    "record": "chen-lin-direction-flip-threshold-limit",
+    "repository_name": "chen-lin-direction-flip-threshold-limit",
+    "source": {
+      "bytes": 12860,
+      "sha256": "d7234d93cb08d361cb682cf21384abc7feb130ce9568e6fef2f29bf212e622d1",
+      "url": "/api/v1/collected-papers/chen-lin-direction-flip-threshold-limit/files/source?version=2"
+    },
+    "title": "Convergence of Chen and Lin's direction-flip threshold",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-25T15:18:37.733227726Z",
+        "revision": "2",
+        "version": 2
+      }
+    ],
+    "work": "chen-lin-direction-flip-threshold-limit"
+  }
+}

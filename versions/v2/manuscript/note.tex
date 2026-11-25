@@ -1,0 +1,317 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[T1]{fontenc}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\DeclareMathOperator{\Hom}{Hom}
+\newcommand{\TAS}{\mathrm{TAS}}
+\newcommand{\ph}{\varphi}
+\title{Convergence of Chen and Lin's direction-flip threshold}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\\small National University of Singapore\\\small ChronoAI Pte Ltd, Singapore}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+We answer Chen and Lin's Question 6.1 in Section 6 of
+\emph{Oriented Paths with Few Direction Flips Are Tournament Anti-Sidorenko}
+(arXiv:2609.14655v1) affirmatively: their strict flip threshold divided by
+path length converges, by reflection and amplification of any finite
+counterexample followed by bounded padding in the same tournament.
+The limit is the infimum of the normalized flip counts, with one extra flip,
+of all non-anti-Sidorenko paths. A finite witness gives an explicit eventual
+upper bound; combined with Chen and Lin's lower bound, this yields a limit
+between $1/1665$ and $9/19$. Its exact value remains undetermined.
+\end{abstract}
+
+\section{The threshold and its limit}
+A tournament is a finite loopless directed graph with exactly one arc between
+each pair of distinct vertices. All tournaments below have at least one vertex.
+For $k\geq1$ and $w=(w_1,\ldots,w_k)\in\{+,-\}^k$, let $P(w)$ have vertices
+$0,\ldots,k$, with $i-1\to i$ when $w_i=+$ and $i\to i-1$ when $w_i=-$.
+Write
+\[
+ \ph(w)=\#\{i:1\leq i<k,\ w_i\ne w_{i+1}\}.
+\]
+For an $N$-vertex tournament $T$, set
+$t(w,T)=|\Hom(P(w),T)|/N^{k+1}$, where a homomorphism preserves arcs
+and need not be injective. The word $w$ is tournament anti-Sidorenko,
+abbreviated TAS, if $t(w,T)\leq2^{-k}$ for every such $T$.
+Following Chen and Lin~\cite{CL}, define the \emph{strict} threshold
+\begin{equation}\label{eq:threshold}
+ f(k)=\max\{m\in\{0,\ldots,k\}:\ \ph(w)<m\Longrightarrow w\text{ is TAS
+ for all }w\in\{+,-\}^k\}.
+\end{equation}
+Thus $f(k)=k$ if every length-$k$ word is TAS; otherwise $f(k)$ is the
+least flip count of a non-TAS word. Indeed a word attaining that least count
+excludes every larger $m$, and all words with smaller count are TAS.
+
+Chen and Lin prove that every length-$k$ word with $r$ flips is TAS when
+$k\geq1665r+1454$~\cite[Theorem 1.3]{CL}. Their Corollary 1.4 implies
+$\liminf f(k)/k\geq1/1665$; Question 6.1 asks whether the limit exists.
+For one flip, He, Mani, Nie, Tung and Wei~\cite[Proposition 2.4]{HMNTW} verified lengths
+$3$ through $7$ by polynomial expansions, and Chen, Clemen and Noel~\cite[Theorem 1.4]{CCN}
+proved the TAS property at every length at least $3$, using algebraic and
+entropy methods. These are uniform results about prescribed low-flip words.
+Chen and Lin's proof controls all words with few flips. Here the complementary
+approach starts with one violating word and propagates it to \emph{every}
+sufficiently large length. Reflection makes its transfer positive
+semidefinite, allowing arbitrary repetition; a choice between the two next
+edge directions handles the remainder.
+
+The amplification inequality is the square-matrix case of Banks, Harcharras,
+Neuwirth and Ricard~\cite[Theorem 1.1]{BHNR}; we include a spectral proof.
+Endpoint-conditioned reflection in a fixed tournament also appears in
+Chen, Clemen and Noel~\cite[Lemma 3.1]{CCN}.
+Luck's analysis of the periodic rise--fall pattern $++--$~\cite[Section 8.2]{Luck}
+already implies $\limsup f(k)/k\leq1/2$: its pattern probabilities have
+$k$th root tending to $1/1.875104\ldots>1/2$, and finite transitive
+tournaments approximate these probabilities. The contribution here is the
+propagation of an arbitrary finite obstruction to every sufficiently large
+length, yielding convergence and a finite-obstruction formula. Applying that
+formula to earlier permutation counts gives the sharper bound $9/19$ below.
+
+\begin{theorem}\label{thm:main}
+Let $\mathcal D=\{1\}\cup\{(\ph(w)+1)/|w|:\ |w|\geq1,\ w\text{ is not TAS}\}$
+and $L=\inf\mathcal D$. Then
+\[
+ \lim_{n\to\infty}\frac{f(n)}n=L,
+ \qquad \frac1{1665}\leq L\leq\frac9{19},
+ \qquad \frac{f(n)}n\geq L-\frac1n\quad(n\geq1).
+\]
+More explicitly, suppose $w$ has length $k\geq1$, $r=\ph(w)$, and
+$q=2^kt(w,T)>1$ in an $N$-vertex tournament. Then $N\geq2$. Put
+\begin{equation}\label{eq:cutoff}
+ c=\frac{N-1}{N},\qquad
+ M=1+\left\lfloor\frac{k\log(1/c)}{\log q}\right\rfloor.
+\end{equation}
+For every $n\geq2kM$ there is a non-TAS word of length $n$ in this same $T$, and
+\begin{equation}\label{eq:upper}
+ \frac{f(n)}n\leq\frac{r+1}{k}+\frac{2k}{n}.
+\end{equation}
+\end{theorem}
+
+\section{Finite-host amplification}
+Fix $T$ on $[N]=\{1,\ldots,N\}$, and let $A_{ij}=2/N$ if $i\to j$,
+and $A_{ij}=0$ otherwise. Write $A_+=A$, $A_-=A^{\mathsf T}$,
+$B_w=A_{w_1}\cdots A_{w_k}$, and
+$\mu(B)=\mathbf1^{\mathsf T}B\mathbf1/N$; $\mathbf1$ is the all-one column
+vector. The empty product is $I$. Expanding matrix multiplication gives
+\begin{equation}\label{eq:mass}
+ \mu(B_w)=2^kt(w,T).
+\end{equation}
+Each index sequence is an arc-preserving map, with the factor $(2/N)^k/N$;
+all vertex collisions permitted by the arcs are retained.
+For $\bar +=-$ and $\bar -=+$, let
+$w^*=(\bar w_k,\ldots,\bar w_1)$. Then $B_{w^*}=B_w^{\mathsf T}$.
+
+\begin{lemma}\label{lem:amplification}
+For a real $N\times N$ matrix $B$ with $\mu(B)>1$ and an integer $m\geq0$,
+\[
+ \mu((BB^{\mathsf T})^m)\geq \mu(B)^{2m}.
+\]
+\end{lemma}
+\begin{proof}
+Put $e=\mathbf1/\sqrt N$ and $C=BB^{\mathsf T}$. Cauchy--Schwarz gives
+$e^{\mathsf T}Ce=\|B^{\mathsf T}e\|^2\geq(e^{\mathsf T}Be)^2=\mu(B)^2$.
+By the spectral theorem, $C$ has nonnegative eigenvalues $\lambda_j$ and an
+orthonormal eigenbasis $u_j$. The weights $p_j=(e^{\mathsf T}u_j)^2$ sum to one.
+For $m\geq1$, convexity of $x\mapsto x^m$ on $[0,\infty)$ yields
+\[
+ e^{\mathsf T}C^me=\sum_jp_j\lambda_j^m
+ \geq\left(\sum_jp_j\lambda_j\right)^m
+ \geq\mu(B)^{2m}.
+\]
+For $m=0$ both sides are one.
+\end{proof}
+
+\begin{lemma}\label{lem:padding}
+For any word $u$ and integer $s\geq0$, some word $v$ of length $s$ satisfies
+\[
+ \mu(B_{uv})\geq c^s\mu(B_u),\qquad c=(N-1)/N.
+\]
+\end{lemma}
+\begin{proof}
+The tournament identity gives $(A+A^{\mathsf T})\mathbf1=2c\mathbf1$.
+Consequently
+\[
+ \mu(B_uA)+\mu(B_uA^{\mathsf T})=2c\mu(B_u).
+\]
+At least one of the two terms is at least $c\mu(B_u)$.
+Choose that next sign, and repeat $s$ times. Induction applies because $c\geq0$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Suppose $w$ is non-TAS and choose $T$ with $q=\mu(B_w)>1$.
+The one-vertex tournament has no positive-length homomorphisms, so $N\geq2$
+and $0<c<1$. Let $W=ww^*$, of length $d=2k$.
+For $m\geq1$ its $m$-fold concatenation obeys
+\begin{equation}\label{eq:repeated}
+ \mu(B_{W^m})\geq q^{2m},\qquad
+ \ph(W^m)=2m(r+1)-1.
+\end{equation}
+The mass inequality is Lemma~\ref{lem:amplification}.
+For the flip identity, $w^*$ has $r$ flips, the middle join of $ww^*$ is
+always a flip, and the join of two copies of $W$ is also always a flip:
+the last sign of $w^*$ is opposite the first sign of $w$.
+Thus $m(2r+1)+(m-1)=2m(r+1)-1$.
+
+Write $n=dm+s$ with $0\leq s<d$. If $n\geq dM$, then $m\geq M$ and
+the strict choice in~\eqref{eq:cutoff} gives $c^dq^{2m}>1$.
+Lemma~\ref{lem:padding} supplies $v$ of length $s$ with
+\[
+ \mu(B_{W^mv})\geq c^sq^{2m}\geq c^dq^{2m}>1.
+\]
+So $W^mv$ is non-TAS. Appending $s$ edges creates at most $s$ flips,
+including the first join when $s>0$. Equation~\eqref{eq:threshold} now gives
+\[
+ f(n)\leq2m(r+1)-1+s.
+\]
+Since $n=2km+s$, $r+1\leq k$, and $s<2k$, division proves~\eqref{eq:upper}.
+
+The set $\mathcal D$ is nonempty and contained in $[0,1]$, so $0\leq L\leq1$.
+If $f(n)<n$, a non-TAS word with exactly $f(n)$ flips exists, hence
+$L\leq(f(n)+1)/n$. If $f(n)=n$, the same inequality follows from $L\leq1$.
+This proves the stated lower bound for each $n$, and
+$\liminf f(n)/n\geq L$.
+For every non-TAS $w$,~\eqref{eq:upper} gives
+$\limsup f(n)/n\leq(\ph(w)+1)/|w|$; also $\limsup f(n)/n\leq1$.
+Taking the infimum over $\mathcal D$ gives the reverse inequality.
+Chen and Lin's Corollary 1.4 gives $L\geq1/1665$.
+The upper bound $9/19$ is proved next.
+\end{proof}
+
+\section{A finite witness and the remaining question}
+\begin{corollary}\label{cor:half}
+For the threshold in~\eqref{eq:threshold}, $L\leq9/19<1/2$.
+\end{corollary}
+\begin{proof}
+Let $a(n)$ count permutations of $n$ labels whose successive comparisons
+are the length-$(n-1)$ prefix of $++--++--\cdots$.
+The earlier table A058258~\cite{OEIS} gives
+\[
+ a(19)=908138776681,\qquad a(20)=13194844482843.
+\]
+For $u=(++--)^4++$, each of its $a(19)$ permutations has twenty extensions
+by a final rank. Exactly $a(20)$ of these have the next periodic sign, $-$.
+Thus the number of permutations with signature $w=u+=(++--)^4+++$ is
+\[
+ D=20a(19)-a(20)=4967931050777,
+ \qquad 2^{19}D>20!.
+\]
+This word has nineteen edges and eight flips. In the transitive tournament
+$T_N$ on $[N]$, each twenty-element subset supports exactly $D$ injective
+homomorphisms. Therefore
+\[
+ t(w,T_N)\geq D\binom{N}{20}/N^{20}\longrightarrow D/20!>2^{-19}
+ \quad\text{as }N\to\infty.
+\]
+Some finite $T_N$ violates the TAS bound, so
+Theorem~\ref{thm:main} gives $L\leq(8+1)/19$.
+The accompanying \texttt{verify.py} checks the two tabulated counts by
+last-rank recurrence, checks $D$ independently by inclusion--exclusion on
+descents, and verifies $2^{19}D\binom{4096}{20}>4096^{20}$.
+\end{proof}
+
+For a smaller illustrative host, the word $z=++--++--++$ already violates
+TAS in $T_{128}$. Its permutation count $45541$ appears in Stein's
+1975 letter~\cite[p. 2]{Stein}; the following finite-host count includes
+noninjective homomorphisms as well. Set $b_0(j)=1$ for $1\leq j\leq128$,
+and for $1\leq i\leq10$ set
+\[
+ b_i(j)=\begin{cases}
+ \sum_{h<j}b_{i-1}(h),&z_i=+,\\
+ \sum_{h>j}b_{i-1}(h),&z_i=-.
+ \end{cases}
+\]
+Here $b_i(j)$ counts maps of the first $i$ edges ending at $j$, so
+\[
+ H=\sum_jb_{10}(j)=158125066372222954176.
+\]
+The integer difference is
+\[
+ 2^{10}H-128^{11}=10804340513327658237952>0.
+\]
+Thus $z$ is non-TAS. The accompanying \texttt{verify.py} evaluates the
+recurrence and independently sums the corresponding matrix product in
+integer arithmetic.
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{.30\linewidth}p{.62\linewidth}@{}}
+\toprule
+Source item in Chen--Lin~\cite{CL} & Mathematical coverage\\
+\midrule
+Question 6.1 & Answered affirmatively by Theorem~\ref{thm:main}, for every
+positive length and the original strict maximum.\\[3pt]
+Problem 6.2 & The exact numerical value remains undetermined;
+$\liminf f(k)/k=L\in[1/1665,9/19]$. The infimum formula characterizes $L$
+but does not evaluate it.\\[3pt]
+Section 6, high-flip Sidorenko condition & The negative result is already
+proved there by Chen and Lin; it concerns the opposite inequality and is
+not a consequence of the convergence argument.\\[3pt]
+Corollary 1.4 & Its lower bound is cited here; the limit replaces its
+lower limit without changing its constant.\\
+One-flip question cited in Section 1 & The conjecture of He et al. is already
+proved by Chen, Clemen and Noel~\cite{CCN}; it is not re-proved here.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Verification scope.}
+The pinned Lean file
+\href{https://github.com/the-omega-institute/trureturing/blob/81968a52b83b3d79d4db8e60c34e05d953675dc0/D5/S3/Combinatorics/ExtremalDensity/ChenLinFlipLimit.lean}{\texttt{ChenLinFlipLimit.lean}}
+contains \nolinkurl{source_fullConvergence}, whose proposition is convergence
+of the original strict threshold on sign vectors over all finite nonempty
+tournaments. The declarations \nolinkurl{sourceF_eq_f} and
+\nolinkurl{mass_transfer_eq_density} identify the encodings and the normalized
+homomorphism count. Its \nolinkurl{reflected_power_amplification},
+\nolinkurl{tournament_padding}, and \nolinkurl{defect_propagation} supply the
+finite-host mechanism. The explicit logarithmic cutoff, the exact flip identity
+in~\eqref{eq:repeated}, and Corollary~\ref{cor:half} have the written proofs
+and integer checks above. The finite checks supplement, rather than replace,
+the all-length proof.
+
+\begin{thebibliography}{7}
+\bibitem{BHNR}
+W. Banks, A. Harcharras, S. Neuwirth and \'E. Ricard,
+\emph{Matrix inequalities with applications to the theory of iterated kernels},
+Linear Algebra Appl. \textbf{362} (2003), 275--286.
+\href{https://doi.org/10.1016/S0024-3795(02)00517-7}{doi:10.1016/S0024-3795(02)00517-7}.
+\bibitem{CL}
+H. Chen and Y. Lin,
+\emph{Oriented Paths with Few Direction Flips Are Tournament Anti-Sidorenko},
+arXiv:2609.14655v1 (2026), Theorem 1.3, Corollary 1.4, and Section 6,
+Question 6.1 and Problem 6.2.
+\href{https://arxiv.org/abs/2609.14655v1}{arXiv:2609.14655v1}.
+\bibitem{HMNTW}
+X. He, N. Mani, J. Nie, N. Tung and F. Wei,
+\emph{New Sidorenko-type inequalities in tournaments},
+arXiv:2512.11222v1 (2025), Proposition 2.4, p.~6.
+\href{https://arxiv.org/abs/2512.11222v1}{arXiv:2512.11222v1}.
+\bibitem{CCN}
+H. Chen, F. C. Clemen and J. A. Noel,
+\emph{On Tournament Anti-Sidorenko Orientations of Trees},
+arXiv:2605.14138v2 (2026), Theorem 1.4, p.~2.
+\href{https://arxiv.org/abs/2605.14138v2}{arXiv:2605.14138v2}.
+\bibitem{Luck}
+J. M. Luck,
+\emph{On the frequencies of patterns of rises and falls},
+Physica A \textbf{407} (2014), 252--275;
+\url{https://arxiv.org/abs/1309.7764v2}.
+\bibitem{OEIS}
+The OEIS Foundation Inc.,
+\emph{A058258: The 2-Up sequence},
+\url{https://oeis.org/A058258}, accessed 17 November 2026.
+\bibitem{Stein}
+P. R. Stein, letter to N. J. A. Sloane, 17 March 1975, p. 2,
+in \emph{Correspondence, 1975}, A005981,
+\url{https://oeis.org/A005981/a005981.pdf}.
+\end{thebibliography}
+\bigskip
+\noindent\small Copyright \textcopyright\ Haobo Ma and Wenlin Zhang.
+Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).
+\end{document}

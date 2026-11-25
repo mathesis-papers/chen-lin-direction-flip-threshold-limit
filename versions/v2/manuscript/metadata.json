@@ -1,0 +1,15 @@
+{
+  "id": "chen-lin-direction-flip-threshold-limit",
+  "revision": 2,
+  "problem_ids": ["chen-lin-2026-question-6-1-flip-threshold-limit"],
+  "topic": "Convergence of the strict tournament anti-Sidorenko direction-flip threshold",
+  "title": "Convergence of Chen and Lin's direction-flip threshold",
+  "creators": [
+    {"name": "Ma, Haobo", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Zhang, Wenlin", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "We answer Chen and Lin's Question 6.1 in Section 6 of Oriented Paths with Few Direction Flips Are Tournament Anti-Sidorenko (arXiv:2609.14655v1) affirmatively: their strict flip threshold divided by path length converges, by reflection and amplification of any finite counterexample followed by bounded padding in the same tournament. The limit is the infimum of the normalized flip counts, with one extra flip, of all non-anti-Sidorenko paths. A finite witness gives an explicit eventual upper bound; combined with Chen and Lin's lower bound, this yields a limit between 1/1665 and 9/19. Its exact value remains undetermined.",
+  "summary": "The strict threshold f(k) satisfies f(k)/k -> L, where L is the infimum of {1} and (flips(w)+1)/length(w) over all non-TAS words. Finite-host amplification gives explicit eventual bounds. Applying the formula to permutation counts from OEIS A058258 gives L <= 9/19; Chen and Lin's Corollary 1.4 gives L >= 1/1665.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/81968a52b83b3d79d4db8e60c34e05d953675dc0/D5/S3/Combinatorics/ExtremalDensity/ChenLinFlipLimit.lean"
+}
