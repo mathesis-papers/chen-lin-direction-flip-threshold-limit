@@ -5,13 +5,15 @@
 We answer Chen and Lin's Question 6.1 in Section 6 of Oriented Paths with Few Direction Flips Are Tournament Anti-Sidorenko (arXiv:2609.14655v1) affirmatively: their strict flip threshold divided by path length converges, by reflection and amplification of any finite counterexample followed by bounded padding in the same tournament. The limit is the infimum of the normalized flip counts, with one extra flip, of all non-anti-Sidorenko paths. A finite witness gives an explicit eventual upper bound; combined with Chen and Lin's lower bound, this yields a limit between 1/1665 and 9/19. Its exact value remains undetermined.
 
 - PDF: [frozen public file](paper.pdf)
+- DOI: [https://doi.org/10.5281/zenodo.24485687](https://doi.org/10.5281/zenodo.24485687)
+- Concept DOI: [https://doi.org/10.5281/zenodo.24485686](https://doi.org/10.5281/zenodo.24485686)
 - License: CC-BY-4.0
 - Version: 2
 - Mathesis record: [chen-lin-direction-flip-threshold-limit](https://mathesis-omega-research.apps.chrono-ai.fun/papers/chen-lin-direction-flip-threshold-limit?version=2)
 
 ## How to cite
 
-Haobo Ma, Wenlin Zhang (2026). Convergence of Chen and Lin's direction-flip threshold. Mathesis, version 2. https://mathesis-omega-research.apps.chrono-ai.fun/papers/chen-lin-direction-flip-threshold-limit?version=2
+Haobo Ma, Wenlin Zhang (2026). Convergence of Chen and Lin's direction-flip threshold. Mathesis, version 2. https://doi.org/10.5281/zenodo.24485687
 
 ## Statement progress
 

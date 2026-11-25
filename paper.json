@@ -28,9 +28,9 @@
         "name": "Wenlin Zhang"
       }
     ],
-    "concept_doi": null,
+    "concept_doi": "10.5281/zenodo.24485686",
     "current_version": 2,
-    "doi": null,
+    "doi": "10.5281/zenodo.24485687",
     "lean_source": {
       "revision": "81968a52b83b3d79d4db8e60c34e05d953675dc0",
       "url": "https://github.com/the-omega-institute/trureturing/blob/81968a52b83b3d79d4db8e60c34e05d953675dc0/D5/S3/Combinatorics/ExtremalDensity/ChenLinFlipLimit.lean"
